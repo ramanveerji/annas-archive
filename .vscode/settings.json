@@ -1,0 +1,9 @@
+{
+    "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "cSpell.language": "en,pt,pt-BR",
+    "cSpell.words": [
+        "Pressable"
+    ]
+}

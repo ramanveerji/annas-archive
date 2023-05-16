@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "AnnaArchive",
+    "name": "Anna's Archive",
     "slug": "AnnaArchive",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -22,9 +23,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
