@@ -1,13 +1,18 @@
 import { PureComponent } from 'react'
 import { Button, Pressable, Text, TextInput, View } from 'react-native'
-import { searchStyle } from './styles'
+import { searchStyle } from '../Home/styles'
 import searchFilters from '../../searchFilters.json'
 
 class Search extends PureComponent {
   state = {
-    input: '',
+    query: '',
     orderBy: '',
     extension: ''
+  }
+
+  constructor (props) {
+    super(props)
+    this.state.query = this.props.initialQuery
   }
 
   render () {
@@ -22,7 +27,8 @@ class Search extends PureComponent {
           <TextInput
             style={searchStyle.searchInput}
             placeholder="O que você deseja?"
-            onChange={(t) => this.setState({ input: t })}
+            value={this.state.query}
+            onChange={(t) => this.setState({ query: t })}
           />
           <Button title="Procurar" onPress={search} />
         </View>

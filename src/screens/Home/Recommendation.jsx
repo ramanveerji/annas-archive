@@ -1,8 +1,11 @@
 import { memo } from 'react'
 import { Pressable, View, Text, StyleSheet, Image } from 'react-native'
 
-const Book = ({ data }) => (
-  <Pressable style={styles.container}>
+const Recommendation = ({ data, navigation }) => (
+  <Pressable
+    style={styles.container}
+    onPress={() => navigation.navigate('Search', { params: { query: data.title } })}
+  >
     <View>
       {data.thumbnail_url
         ? <Image
@@ -55,4 +58,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default memo(Book)
+export default memo(Recommendation)

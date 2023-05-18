@@ -8,12 +8,10 @@ export const styles = StyleSheet.create({
 
 export const searchStyle = StyleSheet.create({
   container: {
-    margin: 6
-  },
-  inputContainer: {
     flexDirection: 'row',
     marginBottom: 6,
-    alignItems: 'center'
+    alignItems: 'center',
+    margin: 6
   },
   searchInput: {
     flex: 1,
@@ -22,20 +20,5 @@ export const searchStyle = StyleSheet.create({
     borderRadius: 3,
     marginRight: 5,
     padding: 4
-  },
-  filtersContainer: {
-    flexDirection: 'row',
-    marginHorizontal: 5,
-    alignItems: 'center'
-  },
-  filter: {
-    flex: 1,
-    margin: 3,
-    padding: 6,
-    borderRadius: 4,
-    backgroundColor: '#E0E0E0'
-  },
-  textCenter: {
-    textAlign: 'center'
   }
 })
