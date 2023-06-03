@@ -12,7 +12,8 @@ export const darkColors = {
   notification: '#ff5555',
   buttons: '#8be9fd',
   placeholder: '#ff79c6',
-  buttonText: '#282a36'
+  buttonText: '#282a36',
+  loadingAnimation: '#bd93f9'
 }
 
 export const colors = darkColors
