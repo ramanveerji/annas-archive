@@ -30,3 +30,38 @@ export const searchStyle = StyleSheet.create({
     textAlign: 'center'
   }
 })
+
+export const resultStyle = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    margin: 8,
+    padding: 12,
+    backgroundColor: '#ddd',
+    borderRadius: 6,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  thumbnail: {
+    height: 175,
+    width: 99,
+    backgroundColor: '#dfd',
+    borderRadius: 6,
+    marginRight: 12
+  },
+  informationArea: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    fontSize: 18,
+    textAlign: 'center'
+  },
+  authors: {
+    marginVertical: 5,
+    textAlign: 'center'
+  },
+  fileInfo: {
+    color: '#636'
+  }
+})
