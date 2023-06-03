@@ -1,7 +1,9 @@
 import { PureComponent } from 'react'
-import { Button, Text, TextInput, View } from 'react-native'
+import { Text, TextInput, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { searchStyle } from './styles'
+import { colors } from '../../init'
+import Button from '../../components/Button'
 import RNPickerSelect from 'react-native-picker-select'
 import searchFilters from '../../searchFilters.json'
 import PropTypes from 'prop-types'
@@ -29,6 +31,9 @@ class SearchBar extends PureComponent {
           <TextInput
             style={searchStyle.searchInput}
             placeholder="O que você deseja?"
+            placeholderTextColor={colors.placeholder}
+            onSubmitEditing={search}
+            enterKeyHint="search"
             value={this.state.query}
             onChangeText={(t) => this.setState({ query: t })}
           />
@@ -36,20 +41,32 @@ class SearchBar extends PureComponent {
         </View>
         <View style={searchStyle.filtersContainer}>
           <View style={searchStyle.filter}>
+          <Ionicons name="reorder-three" size={24} color={colors.loadingAnimation} />
             <RNPickerSelect
               value={this.state.orderBy}
-              Icon={() => <Ionicons name="reorder-three" size={24} color="black" />}
               onValueChange={(v) => this.setState({ orderBy: v })}
               items={searchFilters.orderBy}
+              style={{
+                inputAndroid: {
+                  color: colors.text
+                }
+              }}
+              useNativeAndroidPickerStyle={false}
             />
           </View>
-          <Text>|</Text>
+          <Text style={{ color: colors.text }}>|</Text>
           <View style={searchStyle.filter}>
+          <Ionicons name="document-outline" size={24} color={colors.loadingAnimation} />
             <RNPickerSelect
               value={this.state.extension}
-              Icon={() => <Ionicons name="document-outline" size={24} color="black" />}
               onValueChange={(v) => this.setState({ extension: v })}
               items={searchFilters.extension}
+              style={{
+                inputAndroid: {
+                  color: colors.text
+                }
+              }}
+              useNativeAndroidPickerStyle={false}
             />
           </View>
         </View>

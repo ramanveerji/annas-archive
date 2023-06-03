@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../init'
 
 export const searchStyle = StyleSheet.create({
   container: {
@@ -12,21 +13,27 @@ export const searchStyle = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    borderColor: '#332244',
-    borderWidth: 1,
-    borderRadius: 3,
+    borderColor: colors.borders,
+    color: colors.text,
+    borderWidth: 2,
+    borderRadius: 4,
     marginRight: 5,
     padding: 4
   },
   filtersContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   filter: {
     flex: 1,
-    marginHorizontal: 4,
-    alignItems: 'center'
+    marginHorizontal: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
   },
   textCenter: {
+    color: colors.text,
     textAlign: 'center'
   }
 })
@@ -36,7 +43,7 @@ export const resultStyle = StyleSheet.create({
     flexDirection: 'row',
     margin: 8,
     padding: 12,
-    backgroundColor: '#ddd',
+    backgroundColor: colors.container,
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center'
@@ -54,14 +61,17 @@ export const resultStyle = StyleSheet.create({
     justifyContent: 'center'
   },
   title: {
+    color: colors.title,
     fontSize: 18,
     textAlign: 'center'
   },
   authors: {
     marginVertical: 5,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: colors.text,
+    fontStyle: 'italic'
   },
   fileInfo: {
-    color: '#636'
+    color: colors.placeholder
   }
 })

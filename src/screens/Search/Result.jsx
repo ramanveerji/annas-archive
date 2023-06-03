@@ -12,7 +12,11 @@ const Result = ({ item, navigation }) => {
       onPress={() => navigation.navigate('Download', { path: item.url })}
     >
       <View>
-        <Image source={{ uri: item.thumbnail_url }} style={resultStyle.thumbnail} />
+        <Image
+          source={{ uri: item.thumbnail_url }}
+          style={resultStyle.thumbnail}
+          resizeMode="contain"
+        />
       </View>
       <View style={resultStyle.informationArea}>
         <Text style={resultStyle.title}>{item.title}</Text>

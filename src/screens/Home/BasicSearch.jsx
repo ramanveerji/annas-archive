@@ -24,8 +24,10 @@ const BasicSearch = ({ navigation }) => {
         style={searchStyle.searchInput}
         placeholder="O que você deseja?"
         placeholderTextColor={colors.placeholder}
+        onSubmitEditing={search}
+        enterKeyHint="search"
       />
-      <Button title="Procurar" onPress={search} color={colors.buttons} />
+      <Button title="Procurar" onPress={search} />
     </View>
   )
 }
