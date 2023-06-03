@@ -1,10 +1,12 @@
 import { memo } from 'react'
 import { Pressable, View, Text, StyleSheet, Image } from 'react-native'
+import { colors } from '../../init'
+import PropTypes from 'prop-types'
 
 const Recommendation = ({ data, navigation }) => (
   <Pressable
     style={styles.container}
-    onPress={() => navigation.navigate('Search', { params: { query: data.title } })}
+    onPress={() => navigation.navigate('Search', { query: data.title })}
   >
     <View>
       {data.thumbnail_url
@@ -22,6 +24,10 @@ const Recommendation = ({ data, navigation }) => (
     </View>
   </Pressable>
 )
+Recommendation.propTypes = {
+  data: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -29,9 +35,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
     marginVertical: 5,
-    backgroundColor: '#DDD',
+    backgroundColor: colors.container,
     padding: 6,
-    borderRadius: 6
+    borderRadius: 12
   },
   image: {
     height: 175,
@@ -45,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   title: {
+    color: colors.title,
     fontSize: 20,
     fontWeight: 500,
     textAlign: 'center',
@@ -54,7 +61,8 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontSize: 16,
     fontWeight: 300,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: colors.text
   }
 })
 

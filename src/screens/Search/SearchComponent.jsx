@@ -1,23 +1,24 @@
 import { PureComponent } from 'react'
-import { Button, Pressable, Text, TextInput, View } from 'react-native'
-import { searchStyle } from '../Home/styles'
+import { Button, Text, TextInput, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import { searchStyle } from './styles'
+import RNPickerSelect from 'react-native-picker-select'
 import searchFilters from '../../searchFilters.json'
 
-class Search extends PureComponent {
-  state = {
-    query: '',
+class SearchBar extends PureComponent {
+  defaultState = {
     orderBy: '',
     extension: ''
   }
 
   constructor (props) {
     super(props)
-    this.state.query = this.props.initialQuery
+    this.state = { ...this.defaultState, query: this.props.initialQuery }
   }
 
   render () {
     const search = () => this.props.onSearchPress(
-      this.state.input,
+      this.state.query,
       this.state.orderBy,
       this.state.extension
     )
@@ -28,26 +29,32 @@ class Search extends PureComponent {
             style={searchStyle.searchInput}
             placeholder="O que você deseja?"
             value={this.state.query}
-            onChange={(t) => this.setState({ query: t })}
+            onChangeText={(t) => this.setState({ query: t })}
           />
           <Button title="Procurar" onPress={search} />
         </View>
         <View style={searchStyle.filtersContainer}>
-          <Pressable style={searchStyle.filter}>
-            <Text style={searchStyle.textCenter}>
-              🔼 {searchFilters.orderBy[this.state.orderBy]}
-            </Text>
-          </Pressable>
+          <View style={searchStyle.filter}>
+            <RNPickerSelect
+              value={this.state.orderBy}
+              Icon={() => <Ionicons name="reorder-three" size={24} color="black" />}
+              onValueChange={(v) => this.setState({ orderBy: v })}
+              items={searchFilters.orderBy}
+            />
+          </View>
           <Text>|</Text>
-          <Pressable style={searchStyle.filter}>
-            <Text style={searchStyle.textCenter}>
-              📄 {searchFilters.extension[this.state.extension]}
-            </Text>
-          </Pressable>
+          <View style={searchStyle.filter}>
+            <RNPickerSelect
+              value={this.state.extension}
+              Icon={() => <Ionicons name="document-outline" size={24} color="black" />}
+              onValueChange={(v) => this.setState({ extension: v })}
+              items={searchFilters.extension}
+            />
+          </View>
         </View>
       </View>
     )
   }
 }
 
-export default Search
+export default SearchBar

@@ -7,6 +7,7 @@ import BasicSearch from './BasicSearch'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 import Recommendation from './Recommendation'
+import PropTypes from 'prop-types'
 
 class HomeScreen extends PureComponent {
   state = {
@@ -30,7 +31,13 @@ class HomeScreen extends PureComponent {
   }
 
   render () {
-    const renderItem = ({ item, index }) => <Recommendation data={item} key={index} />
+    const renderItem = ({ item, index }) => (
+      <Recommendation
+        data={item}
+        key={index}
+        navigation={this.props.navigation}
+      />
+    )
     return (
       <View style={styles.flex}>
         <BasicSearch navigation={this.props.navigation} />
@@ -50,5 +57,6 @@ class HomeScreen extends PureComponent {
     )
   }
 }
+HomeScreen.propTypes = { navigation: PropTypes.object.isRequired }
 
 export default HomeScreen

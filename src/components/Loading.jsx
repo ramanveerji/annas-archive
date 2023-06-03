@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { ActivityIndicator, Text, StyleSheet, View } from 'react-native'
+import PropTypes from 'prop-types'
 
 const Loading = ({ message }) => (
   <View style={style.root}>
@@ -7,6 +8,7 @@ const Loading = ({ message }) => (
     <Text style={style.text}>{message}</Text>
   </View>
 )
+Loading.propTypes = { message: PropTypes.string.isRequired }
 
 const style = StyleSheet.create({
   root: {

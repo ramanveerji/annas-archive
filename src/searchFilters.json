@@ -1,12 +1,38 @@
 {
-  "orderBy": {
-    "": "Mais relevante",
-    "newest": "Mais novo",
-    "oldest": "Mais velho",
-    "largest": "Maior arquivo",
-    "smallest": "Menor arquivo"
-  },
-  "extension": {
-    "": "Todas"
-  }
+  "orderBy": [
+    {
+      "value": "",
+      "label": "Mais relevante"
+    },
+    {
+      "value": "newest",
+      "label": "Mais novo"
+    },
+    {
+      "value": "oldest",
+      "label": "Mais velho"
+    },
+    {
+      "value": "largest",
+      "label": "Maior arquivo"
+    },
+    {
+      "value": "smallest",
+      "label": "Menor arquivo"
+    }
+  ],
+  "extension": [
+    {
+      "value": "",
+      "label": "Todas"
+    },
+    {
+      "value": "pdf",
+      "label": "PDF"
+    },
+    {
+      "value": "epub",
+      "label": "EPUB"
+    }
+  ]
 }

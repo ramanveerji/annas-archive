@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { navigationTheme } from './init'
 import HomeScreen from './screens/Home'
 import SearchScreen from './screens/Search'
 
 const Stack = createNativeStackNavigator()
 
 const Main = () => (
-  <NavigationContainer>
+  <NavigationContainer theme={navigationTheme}>
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
@@ -20,7 +21,7 @@ const Main = () => (
         component={SearchScreen}
       />
     </Stack.Navigator>
-    <StatusBar style="auto" />
+    <StatusBar style={navigationTheme.dark ? 'light' : 'dark'} />
   </NavigationContainer>
 )
 
