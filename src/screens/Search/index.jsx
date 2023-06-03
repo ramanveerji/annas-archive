@@ -1,11 +1,12 @@
 import { PureComponent } from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import axios from 'axios'
 import SearchComponent from './SearchComponent'
 import SearchResult from './SearchResult'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 import { API_URL } from '../../init'
+import PropTypes from 'prop-types'
 
 class SearchScreen extends PureComponent {
   state = {
@@ -46,5 +47,6 @@ class SearchScreen extends PureComponent {
     )
   }
 }
+SearchScreen.propTypes = { route: PropTypes.object.isRequired }
 
 export default SearchScreen

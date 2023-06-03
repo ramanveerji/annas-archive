@@ -1,11 +1,15 @@
 import { memo } from 'react'
 import { Pressable, View, Text, Image, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
 const SearchResult = ({ item, navigation }) => {
   const { language, extension, size } = item.file_info
   const fileInfo = [language, extension, size].filter(i => i !== null)
   return (
-    <Pressable style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate('Download', { path: item.url })}
+    >
       <View>
         <Image source={{ uri: item.thumbnail_url }} style={styles.thumbnail} />
       </View>
@@ -18,6 +22,10 @@ const SearchResult = ({ item, navigation }) => {
       </View>
     </Pressable>
   )
+}
+SearchResult.propTypes = {
+  item: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
 }
 
 const styles = StyleSheet.create({

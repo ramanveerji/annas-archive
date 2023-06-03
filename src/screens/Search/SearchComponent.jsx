@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { searchStyle } from './styles'
 import RNPickerSelect from 'react-native-picker-select'
 import searchFilters from '../../searchFilters.json'
+import PropTypes from 'prop-types'
 
 class SearchBar extends PureComponent {
   defaultState = {
@@ -55,6 +56,10 @@ class SearchBar extends PureComponent {
       </View>
     )
   }
+}
+SearchBar.propTypes = {
+  initialQuery: PropTypes.string.isRequired,
+  onSearchPress: PropTypes.func.isRequired
 }
 
 export default SearchBar
