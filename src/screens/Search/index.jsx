@@ -27,7 +27,13 @@ class SearchScreen extends PureComponent {
   }
 
   render () {
-    const renderResult = ({ item, index }) => (<SearchResult item={item} key={index} />)
+    const renderResult = ({ item, index }) => (
+      <SearchResult
+        item={item}
+        key={index}
+        navigation={this.props.navigation}
+      />
+    )
     return (
       <View style={{ flex: 1 }}>
         <SearchBar
@@ -47,6 +53,9 @@ class SearchScreen extends PureComponent {
     )
   }
 }
-SearchScreen.propTypes = { route: PropTypes.object.isRequired }
+SearchScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired
+}
 
 export default SearchScreen
