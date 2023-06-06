@@ -4,7 +4,7 @@ import { FlatList, View } from 'react-native'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import SearchBar from './SearchBar'
-import SearchResult from './Result'
+import BookResult from '../../components/BookResult'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 
@@ -28,9 +28,9 @@ class SearchScreen extends PureComponent {
 
   render () {
     const renderResult = ({ item, index }) => (
-      <SearchResult
-        item={item}
+      <BookResult
         key={index}
+        data={item}
         navigation={this.props.navigation}
       />
     )

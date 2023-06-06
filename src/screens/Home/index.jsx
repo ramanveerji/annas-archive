@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import BasicSearch from './BasicSearch'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
-import Recommendation from './Recommendation'
+import BookResult from '../../components/BookResult'
 
 class HomeScreen extends PureComponent {
   state = {
@@ -32,9 +32,9 @@ class HomeScreen extends PureComponent {
 
   render () {
     const renderItem = ({ item, index }) => (
-      <Recommendation
-        data={item}
+      <BookResult
         key={index}
+        data={item}
         navigation={this.props.navigation}
       />
     )
