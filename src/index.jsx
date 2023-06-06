@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import * as NavigationBar from 'expo-navigation-bar'
 import HomeScreen from './screens/Home'
 import SearchScreen from './screens/Search'
+import DownloadScreen from './screens/Download'
 
 const Stack = createNativeStackNavigator()
 
@@ -24,6 +25,11 @@ const Main = () => {
           name="Search"
           options={{ title: 'Procurar...' }}
           component={SearchScreen}
+        />
+        <Stack.Screen
+          name="Download"
+          options={{ title: 'Baixar' }}
+          component={DownloadScreen}
         />
       </Stack.Navigator>
       <StatusBar style={reverseTheme} />
