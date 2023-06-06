@@ -1,13 +1,13 @@
 import { PureComponent } from 'react'
-import { View, FlatList } from 'react-native'
 import { API_URL } from '../../init'
 import { styles } from './styles'
+import { View, FlatList } from 'react-native'
 import axios from 'axios'
+import PropTypes from 'prop-types'
 import BasicSearch from './BasicSearch'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 import Recommendation from './Recommendation'
-import PropTypes from 'prop-types'
 
 class HomeScreen extends PureComponent {
   state = {

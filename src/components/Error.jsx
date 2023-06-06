@@ -1,8 +1,8 @@
 import { memo } from 'react'
+import { colors } from '../init'
 import { Button, View, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
-import { colors } from '../init'
 
 const Error = ({ message, onRetryPress }) => (
   <View style={style.root}>

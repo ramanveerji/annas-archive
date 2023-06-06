@@ -1,12 +1,12 @@
 import { PureComponent } from 'react'
+import { API_URL } from '../../init'
 import { FlatList, View } from 'react-native'
 import axios from 'axios'
-import SearchComponent from './SearchBar'
+import PropTypes from 'prop-types'
+import SearchBar from './SearchBar'
 import SearchResult from './Result'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
-import { API_URL } from '../../init'
-import PropTypes from 'prop-types'
 
 class SearchScreen extends PureComponent {
   state = {
@@ -30,7 +30,7 @@ class SearchScreen extends PureComponent {
     const renderResult = ({ item, index }) => (<SearchResult item={item} key={index} />)
     return (
       <View style={{ flex: 1 }}>
-        <SearchComponent
+        <SearchBar
           initialQuery={this.props.route.params.query}
           onSearchPress={(...args) => this.search(...args)}
         />

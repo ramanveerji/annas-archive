@@ -1,7 +1,7 @@
 import { memo } from 'react'
+import { colors } from '../init'
 import { ActivityIndicator, Text, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { colors } from '../init'
 
 const Loading = ({ message }) => (
   <View style={style.root}>

@@ -1,12 +1,12 @@
 import { PureComponent } from 'react'
-import { Text, TextInput, View } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
 import { searchStyle } from './styles'
 import { colors } from '../../init'
-import Button from '../../components/Button'
-import RNPickerSelect from 'react-native-picker-select'
+import { Text, TextInput, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
 import searchFilters from '../../searchFilters.json'
 import PropTypes from 'prop-types'
+import Button from '../../components/Button'
+import RNPickerSelect from 'react-native-picker-select'
 
 class SearchBar extends PureComponent {
   defaultState = {

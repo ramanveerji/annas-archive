@@ -51,7 +51,7 @@ export const resultStyle = StyleSheet.create({
   thumbnail: {
     height: 175,
     width: 99,
-    backgroundColor: '#dfd',
+    backgroundColor: colors.thumbnailBackground,
     borderRadius: 6,
     marginRight: 12
   },
@@ -72,6 +72,6 @@ export const resultStyle = StyleSheet.create({
     fontStyle: 'italic'
   },
   fileInfo: {
-    color: colors.placeholder
+    color: colors.text
   }
 })

@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Pressable, View, Text, Image } from 'react-native'
 import { resultStyle } from './styles'
+import { Pressable, View, Text, Image } from 'react-native'
 import PropTypes from 'prop-types'
 
 const Result = ({ item, navigation }) => {

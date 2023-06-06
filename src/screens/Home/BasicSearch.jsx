@@ -1,9 +1,9 @@
 import { memo, useState } from 'react'
-import { TextInput, View, ToastAndroid } from 'react-native'
-import { searchStyle } from './styles'
 import { colors } from '../../init'
-import Button from '../../components/Button'
+import { searchStyle } from './styles'
+import { TextInput, View, ToastAndroid } from 'react-native'
 import PropTypes from 'prop-types'
+import Button from '../../components/Button'
 
 const BasicSearch = ({ navigation }) => {
   const [input, setInput] = useState('')

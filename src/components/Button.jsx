@@ -1,9 +1,11 @@
 import { memo } from 'react'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 import { colors } from '../init'
+import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
-const Button = ({ title, onPress, color = colors.buttons, style = { color: colors.buttonText } }) => (
+const defaultStyle = { color: colors.buttonText }
+
+const Button = ({ title, onPress, color = colors.buttons, style = defaultStyle }) => (
   <TouchableOpacity
     onPress={onPress}
     style={[styles.container, { backgroundColor: color }]}

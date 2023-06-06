@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { Pressable, View, Text, Image } from 'react-native'
 import { recommendationStyle } from './styles'
+import { Pressable, View, Text, Image } from 'react-native'
 import PropTypes from 'prop-types'
 
 const Recommendation = ({ data, navigation }) => (
