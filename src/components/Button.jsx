@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const defaultStyle = { color: colors.buttonText }
 
-const Button = ({ title, onPress, color = colors.buttons, style = defaultStyle }) => (
+const Button = ({ title, onPress, color = colors.button, style = defaultStyle }) => (
   <TouchableOpacity
     onPress={onPress}
     style={[styles.container, { backgroundColor: color }]}

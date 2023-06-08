@@ -13,7 +13,7 @@ const Error = ({ message, onRetryPress }) => (
       <Button
         title="Tentar novamente"
         onPress={onRetryPress}
-        color={colors.buttons}
+        color={colors.button}
       />
         )
       : null}

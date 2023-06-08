@@ -13,7 +13,7 @@ export const searchStyle = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    borderColor: colors.borders,
+    borderColor: colors.border,
     color: colors.text,
     borderWidth: 2,
     borderRadius: 4,

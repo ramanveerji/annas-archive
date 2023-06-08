@@ -17,7 +17,7 @@ export const searchStyle = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    borderColor: colors.borders,
+    borderColor: colors.border,
     borderWidth: 2,
     borderRadius: 3,
     marginRight: 5,

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   thumbnail: {
     height: 175,
     width: 99,
-    backgroundColor: colors.thumbnailBackground,
+    backgroundColor: colors.thumbnail,
     borderRadius: 6,
     marginRight: 12
   },
