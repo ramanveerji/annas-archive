@@ -2,6 +2,7 @@ import { PureComponent } from 'react'
 import { API_URL } from '../../init'
 import { View, Text, Image, ScrollView } from 'react-native'
 import axios from 'axios'
+import styles from './styles'
 import Loading from '../../components/Loading'
 import Link from './Link'
 
@@ -23,35 +24,39 @@ class DownloadScreen extends PureComponent {
   renderDownloadInformation () {
     const authors = this.state.downloadInformation.authors.join(', ')
     return (
-      <ScrollView style={{ padding: 6 }}>
-        <View style={{ flex: 1, alignItems: 'center', padding: 16 }}>
+      <View style={styles.contentContainer}>
+        <View style={styles.thumbnailContainer}>
           <Image
             source={{ uri: this.state.downloadInformation.thumbnail_url }}
             resizeMode="contain"
-            style={{ borderRadius: 12, width: 200, height: 354 }}
+            style={styles.thumbnail}
           />
         </View>
-        <Text style={{ textAlign: 'center', marginBottom: 4, fontSize: 24 }}>{this.state.downloadInformation.title}</Text>
-        <Text style={{ textAlign: 'center', marginBottom: 10, fontSize: 13, fontStyle: 'italic' }}>{authors}</Text>
-        <Text style={{ textAlign: 'left', marginBottom: 10, fontSize: 15 }}>{'   • ' + this.state.downloadInformation.description}</Text>
-        <View style={{ flex: 1, alignItems: 'center' }}>
+        <Text style={styles.title}>{this.state.downloadInformation.title}</Text>
+        <Text style={styles.authors}>{authors}</Text>
+        {this.state.downloadInformation.description
+          ? <Text style={styles.description}>
+              {'   • ' + this.state.downloadInformation.description}
+            </Text>
+          : null}
+        <View style={styles.downloads}>
           {this.state.downloadInformation.download_links.map((item, index) => (
             <Link key={index} {...item} />
           ))}
         </View>
-      </ScrollView>
+      </View>
     )
   }
 
   render () {
-    return (
-      <View style={{ flex: 1 }}>
-        {this.state.loading
-          ? <Loading message="Obtendo informações..." />
-          : this.renderDownloadInformation()
-        }
-      </View>
-    )
+    if (this.state.loading) {
+      return (
+        <View style={styles.flex}>
+          <Loading message="Obtendo informações..." />
+        </View>
+      )
+    }
+    return (<ScrollView>{this.renderDownloadInformation()}</ScrollView>)
   }
 }
 
