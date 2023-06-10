@@ -22,7 +22,7 @@ export const darkColors = {
 
 export const lightColors = {
   // backgrounds
-  background: '#ffffef',
+  background: '#fff',
   thumbnail: '#dfd',
   container: '#EEE3CB',
   button: '#967E76',
