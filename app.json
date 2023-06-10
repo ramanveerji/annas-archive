@@ -20,8 +20,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.dheisomgomes.AnnaArchive"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7c0091d3-48c2-47ba-a36b-cf1413bf1c3a"
       }
     }
   }
