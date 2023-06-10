@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { navigationTheme, colors } from './init'
+import { navigationTheme } from './init'
 import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
 import * as NavigationBar from 'expo-navigation-bar'
@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator()
 
 const Main = () => {
   const reverseTheme = navigationTheme.dark ? 'light' : 'dark'
-  NavigationBar.setBackgroundColorAsync(colors.background)
+  NavigationBar.setBackgroundColorAsync(navigationTheme.colors.background)
   NavigationBar.setButtonStyleAsync(reverseTheme)
   return (
     <NavigationContainer theme={navigationTheme}>

@@ -6,21 +6,21 @@ import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 
 const BasicSearch = ({ navigation }) => {
-  const [input, setInput] = useState('')
+  const [query, setQuery] = useState('')
   const search = () => {
-    if (input.trim() === '') {
+    if (query.trim() === '') {
       return ToastAndroid.show(
         'Não é possível procurar por algo que não foi dito!',
         ToastAndroid.SHORT
       )
     }
-    navigation.navigate('Search', { query: input.trim() })
+    navigation.navigate('Search', { query: query.trim() })
   }
   return (
     <View style={searchStyle.container}>
       <TextInput
-        value={input}
-        onChangeText={(t) => setInput(t)}
+        value={query}
+        onChangeText={(t) => setQuery(t)}
         style={searchStyle.searchInput}
         placeholder="O que você deseja?"
         placeholderTextColor={colors.placeholder}

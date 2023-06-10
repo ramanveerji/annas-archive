@@ -1,82 +1,69 @@
-import { PureComponent } from 'react'
+import { memo, useState } from 'react'
 import { searchStyle } from './styles'
 import { colors } from '../../init'
 import { Text, TextInput, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import searchFilters from '../../searchFilters.json'
+import filters from './filters.json'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import RNPickerSelect from 'react-native-picker-select'
 
-class SearchBar extends PureComponent {
-  defaultState = {
-    orderBy: '',
-    extension: ''
-  }
+const SearchBar = ({ initialQuery, onSearchPress }) => {
+  const [query, setQuery] = useState(initialQuery || '')
+  const [order, setOrder] = useState('')
+  const [extension, setExtension] = useState('')
 
-  constructor (props) {
-    super(props)
-    this.state = { ...this.defaultState, query: this.props.initialQuery }
-  }
+  const search = () => onSearchPress(query, order, extension)
 
-  render () {
-    const search = () => this.props.onSearchPress(
-      this.state.query,
-      this.state.orderBy,
-      this.state.extension
-    )
-    return (
-      <View style={searchStyle.container}>
-        <View style={searchStyle.inputContainer}>
-          <TextInput
-            style={searchStyle.searchInput}
-            placeholder="O que você deseja?"
-            placeholderTextColor={colors.placeholder}
-            onSubmitEditing={search}
-            enterKeyHint="search"
-            value={this.state.query}
-            onChangeText={(t) => this.setState({ query: t })}
-          />
-          <Button title="Procurar" onPress={search} />
-        </View>
-        <View style={searchStyle.filtersContainer}>
-          <View style={searchStyle.filter}>
+  return (
+    <View style={searchStyle.container}>
+      <View style={searchStyle.inputContainer}>
+        <TextInput
+          style={searchStyle.searchInput}
+          placeholder="O que você deseja?"
+          placeholderTextColor={colors.placeholder}
+          onSubmitEditing={search}
+          enterKeyHint="search"
+          value={query}
+          onChangeText={(t) => setQuery(t)}
+        />
+        <Button title="Procurar" onPress={search} />
+      </View>
+      <View style={searchStyle.filtersContainer}>
+        <View style={searchStyle.filter}>
           <Ionicons name="reorder-three" size={24} color={colors.loadingAnimation} />
-            <RNPickerSelect
-              value={this.state.orderBy}
-              onValueChange={(v) => this.setState({ orderBy: v })}
-              items={searchFilters.orderBy}
-              style={{
-                inputAndroid: {
-                  color: colors.text
-                }
-              }}
-              useNativeAndroidPickerStyle={false}
-            />
-          </View>
-          <Text style={{ color: colors.text }}>|</Text>
-          <View style={searchStyle.filter}>
+          <RNPickerSelect
+            value={order}
+            onValueChange={(v) => setOrder(v)}
+            items={filters.orderBy}
+            style={pickerStyle}
+            useNativeAndroidPickerStyle={false}
+          />
+        </View>
+        <Text style={{ color: colors.text }}>|</Text>
+        <View style={searchStyle.filter}>
           <Ionicons name="document-outline" size={24} color={colors.loadingAnimation} />
-            <RNPickerSelect
-              value={this.state.extension}
-              onValueChange={(v) => this.setState({ extension: v })}
-              items={searchFilters.extension}
-              style={{
-                inputAndroid: {
-                  color: colors.text
-                }
-              }}
-              useNativeAndroidPickerStyle={false}
-            />
-          </View>
+          <RNPickerSelect
+            value={extension}
+            onValueChange={(v) => setExtension(v)}
+            items={filters.extension}
+            style={pickerStyle}
+            useNativeAndroidPickerStyle={false}
+          />
         </View>
       </View>
-    )
-  }
+    </View>
+  )
 }
 SearchBar.propTypes = {
   initialQuery: PropTypes.string.isRequired,
   onSearchPress: PropTypes.func.isRequired
 }
 
-export default SearchBar
+const pickerStyle = {
+  inputAndroid: {
+    color: colors.text
+  }
+}
+
+export default memo(SearchBar)

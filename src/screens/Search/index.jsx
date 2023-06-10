@@ -9,49 +9,53 @@ import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 
 class SearchScreen extends PureComponent {
-  state = {
-    loading: true,
-    results: [],
-    error: null
-  }
+  state = { loading: true, results: [], error: null }
 
-  componentDidMount () {
-    this.search(this.props.route.params.query, '', '')
-  }
+  componentDidMount = () => this.search(this.props.route.params.query, '', '')
 
   search (query, orderBy, extension) {
+    const onResponse = (response) => this.setState({
+      results: response.data,
+      loading: false
+    })
+    const onError = (error) => this.setState({
+      error: 'Deu erro nessa bagaça!\n' + JSON.stringify(error.response),
+      loading: false
+    })
     this.setState({ loading: true })
-    axios.get(`${API_URL}/search`, { params: { q: query, sort: orderBy, ext: extension } })
-      .then(response => this.setState({ results: response.data, loading: false }))
-      .catch(e => this.setState({ error: 'Deu erro nessa bagaça!\n' + JSON.stringify(e.response), loading: false }))
+
+    const params = { q: query, sort: orderBy, ext: extension }
+    axios.get(`${API_URL}/search`, { params }).then(onResponse).catch(onError)
   }
 
-  render () {
-    const renderResult = ({ item, index }) => (
-      <BookResult
-        key={index}
-        data={item}
-        navigation={this.props.navigation}
+  renderBookResult = ({ item, index }) => (
+    <BookResult
+      key={index}
+      data={item}
+      navigation={this.props.navigation}
+    />
+  )
+
+  renderResults = () => (
+    <FlatList
+      data={this.state.results}
+      renderItem={this.renderBookResult} />
+  )
+
+  renderError = () => <Error message={this.state.error} />
+
+  render = () => (
+    <View style={{ flex: 1 }}>
+      <SearchBar
+        initialQuery={this.props.route.params.query}
+        onSearchPress={(...args) => this.search(...args)}
       />
-    )
-    return (
-      <View style={{ flex: 1 }}>
-        <SearchBar
-          initialQuery={this.props.route.params.query}
-          onSearchPress={(...args) => this.search(...args)}
-        />
-        {this.state.loading
-          ? <Loading message="Procurando..." />
-          : (this.state.error
-              ? <Error message={this.state.error} />
-              : <FlatList
-                data={this.state.results}
-                renderItem={renderResult} />
-            )
-        }
-      </View>
-    )
-  }
+      {this.state.loading
+        ? <Loading message="Procurando..." />
+        : (this.state.error ? this.renderError() : this.renderResults())
+      }
+    </View>
+  )
 }
 SearchScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
