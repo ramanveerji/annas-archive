@@ -4,7 +4,7 @@ import { styles } from './styles'
 import { View, FlatList } from 'react-native'
 import axios from 'axios'
 import PropTypes from 'prop-types'
-import BasicSearch from './BasicSearch'
+import { BasicSearch } from '../../components/Search'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 import BookResult from '../../components/BookResult'
@@ -51,16 +51,19 @@ class HomeScreen extends PureComponent {
       onRetryPress={() => this.loadRecommendations()} />
   )
 
-  render = () => (
-    <View style={styles.flex}>
-      <BasicSearch navigation={this.props.navigation} />
+  render () {
+    const onSearch = (query) => this.props.navigation.navigate('Search', { query })
+    return (
       <View style={styles.flex}>
-        {this.state.loading
-          ? <Loading message="Carregando recomendações..." />
-          : (this.state.error ? this.renderError() : this.renderRecommendations())}
+        <BasicSearch onSearchRequest={onSearch} />
+        <View style={styles.flex}>
+          {this.state.loading
+            ? <Loading message="Carregando recomendações..." />
+            : (this.state.error ? this.renderError() : this.renderRecommendations())}
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 HomeScreen.propTypes = { navigation: PropTypes.object.isRequired }
 

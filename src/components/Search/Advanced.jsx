@@ -1,36 +1,24 @@
 import { memo, useState } from 'react'
-import { searchStyle } from './styles'
+import { advancedStyles } from './styles'
 import { colors } from '../../init'
-import { Text, TextInput, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import filters from './filters.json'
 import PropTypes from 'prop-types'
-import Button from '../../components/Button'
+import BasicSearch from './Basic'
 import RNPickerSelect from 'react-native-picker-select'
 
 const SearchBar = ({ initialQuery, onSearchPress }) => {
-  const [query, setQuery] = useState(initialQuery || '')
   const [order, setOrder] = useState('')
   const [extension, setExtension] = useState('')
 
-  const search = () => onSearchPress(query, order, extension)
+  const search = (query) => onSearchPress(query, order, extension)
 
   return (
-    <View style={searchStyle.container}>
-      <View style={searchStyle.inputContainer}>
-        <TextInput
-          style={searchStyle.searchInput}
-          placeholder="O que você deseja?"
-          placeholderTextColor={colors.placeholder}
-          onSubmitEditing={search}
-          enterKeyHint="search"
-          value={query}
-          onChangeText={(t) => setQuery(t)}
-        />
-        <Button title="Procurar" onPress={search} />
-      </View>
-      <View style={searchStyle.filtersContainer}>
-        <View style={searchStyle.filter}>
+    <View style={advancedStyles.container}>
+      <BasicSearch onSearchRequest={(t) => search(t)} initialQuery={initialQuery} />
+      <View style={advancedStyles.filtersContainer}>
+        <View style={advancedStyles.filter}>
           <Ionicons name="reorder-three" size={24} color={colors.loadingAnimation} />
           <RNPickerSelect
             value={order}
@@ -41,7 +29,7 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
           />
         </View>
         <Text style={{ color: colors.text }}>|</Text>
-        <View style={searchStyle.filter}>
+        <View style={advancedStyles.filter}>
           <Ionicons name="document-outline" size={24} color={colors.loadingAnimation} />
           <RNPickerSelect
             value={extension}

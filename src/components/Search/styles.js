@@ -1,7 +1,26 @@
 import { StyleSheet } from 'react-native'
 import { colors } from '../../init'
 
-export const searchStyle = StyleSheet.create({
+export const basicStyles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    marginBottom: 6,
+    alignItems: 'center',
+    margin: 6,
+    justifyContent: 'center'
+  },
+  searchInput: {
+    flex: 1,
+    borderColor: colors.border,
+    borderWidth: 2,
+    borderRadius: 3,
+    marginRight: 5,
+    padding: 4,
+    color: colors.text
+  }
+})
+
+export const advancedStyles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     margin: 6
