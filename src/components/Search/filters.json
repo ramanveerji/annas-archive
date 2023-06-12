@@ -1,38 +1,110 @@
 {
   "orderBy": [
     {
-      "value": "",
-      "label": "Mais relevante"
+      "label": "Relevante",
+      "value": ""
     },
     {
-      "value": "newest",
-      "label": "Mais novo"
+      "label": "Novos",
+      "value": "newest"
     },
     {
-      "value": "oldest",
-      "label": "Mais velho"
+      "label": "Antigos",
+      "value": "oldest"
     },
     {
-      "value": "largest",
-      "label": "Maior arquivo"
+      "label": "Maiores",
+      "value": "largest"
     },
     {
-      "value": "smallest",
-      "label": "Menor arquivo"
+      "label": "Menores",
+      "value": "smallest"
     }
   ],
   "extension": [
     {
-      "value": "",
-      "label": "Todas"
+      "label": "Todos",
+      "value": ""
     },
     {
-      "value": "pdf",
-      "label": "PDF"
+      "label": "PDF",
+      "value": "pdf"
     },
     {
-      "value": "epub",
-      "label": "EPUB"
+      "label": "EPUB",
+      "value": "epub"
+    },
+    {
+      "label": "MOBI",
+      "value": "mobi"
+    },
+    {
+      "label": "AZW3",
+      "value": "azw3"
+    },
+    {
+      "label": "FB2",
+      "value": "fb2"
+    },
+    {
+      "label": "LIT",
+      "value": "lit"
+    },
+    {
+      "label": "DJVU",
+      "value": "djvu"
+    },
+    {
+      "label": "RTF",
+      "value": "rtf"
+    },
+    {
+      "label": "ZIP",
+      "value": "zip"
+    },
+    {
+      "label": "RAR",
+      "value": "rar"
+    },
+    {
+      "label": "CBR",
+      "value": "cbr"
+    },
+    {
+      "label": "TXT",
+      "value": "txt"
+    },
+    {
+      "label": "CBZ",
+      "value": "cbz"
+    },
+    {
+      "label": "HTML",
+      "value": "html"
+    },
+    {
+      "label": "FB2_ZIP",
+      "value": "fb2.zip"
+    },
+    {
+      "label": "DOC",
+      "value": "doc"
+    },
+    {
+      "label": "HTM",
+      "value": "htm"
+    },
+    {
+      "label": "DOCX",
+      "value": "docx"
+    },
+    {
+      "label": "LRF",
+      "value": "lrf"
+    },
+    {
+      "label": "MHT",
+      "value": "mht"
     }
   ]
 }
