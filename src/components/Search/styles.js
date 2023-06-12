@@ -32,7 +32,7 @@ export const advancedStyles = StyleSheet.create({
   },
   filter: {
     flex: 1,
-    marginHorizontal: 3,
+    marginHorizontal: 6,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
@@ -41,9 +41,12 @@ export const advancedStyles = StyleSheet.create({
     color: colors.text,
     textAlign: 'center'
   },
-  pickerStyle: {
-    inputAndroid: {
-      color: colors.text
-    }
+  picker: {
+    flex: 1,
+    color: colors.text
+  },
+  pickerItem: {
+    color: colors.text,
+    backgroundColor: colors.background
   }
 })

@@ -13,11 +13,11 @@
       "value": "oldest"
     },
     {
-      "label": "Maiores",
+      "label": "Grandes",
       "value": "largest"
     },
     {
-      "label": "Menores",
+      "label": "Pequenos",
       "value": "smallest"
     }
   ],

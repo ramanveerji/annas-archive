@@ -8,6 +8,14 @@ import filters from './filters.json'
 import PropTypes from 'prop-types'
 import BasicSearch from './Basic'
 
+const pickerItem = (item, index) => (
+  <Picker.Item
+    label={item.label}
+    value={item.value}
+    key={index}
+    style={advancedStyles.pickerItem} />
+)
+
 const SearchBar = ({ initialQuery, onSearchPress }) => {
   const [order, setOrder] = useState('')
   const [extension, setExtension] = useState('')
@@ -23,11 +31,10 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
           <Picker
             selectedValue={order}
             onValueChange={(v) => setOrder(v)}
-            style={{ flex: 1 }}
-          >
-            {filters.orderBy.map((item, index) => (
-              <Picker.Item key={index} label={item.label} value={item.value} />
-            ))}
+            style={advancedStyles.picker}
+            mode="dropdown"
+            dropdownIconColor={colors.background}>
+            {filters.orderBy.map(pickerItem)}
           </Picker>
         </View>
         <Text style={{ color: colors.text }}>|</Text>
@@ -36,11 +43,10 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
           <Picker
             selectedValue={extension}
             onValueChange={(v) => setExtension(v)}
-            style={{ flex: 1 }}
-          >
-            {filters.extension.map((item, index) => (
-              <Picker.Item key={index} label={item.label} value={item.value} />
-            ))}
+            style={advancedStyles.picker}
+            mode="dropdown"
+            dropdownIconColor={colors.background}>
+            {filters.extension.map(pickerItem)}
           </Picker>
         </View>
       </View>
