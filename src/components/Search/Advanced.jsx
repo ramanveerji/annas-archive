@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import BasicSearch from './Basic'
 
 const SearchBar = ({ initialQuery, onSearchPress }) => {
-  const [order, setOrder] = useState('hello')
+  const [order, setOrder] = useState('')
   const [extension, setExtension] = useState('')
 
   const search = (query) => onSearchPress(query, order, extension)
