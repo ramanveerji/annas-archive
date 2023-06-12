@@ -25,20 +25,6 @@ export const advancedStyles = StyleSheet.create({
     flexDirection: 'column',
     margin: 6
   },
-  inputContainer: {
-    flexDirection: 'row',
-    marginBottom: 6,
-    alignItems: 'center'
-  },
-  searchInput: {
-    flex: 1,
-    borderColor: colors.border,
-    color: colors.text,
-    borderWidth: 2,
-    borderRadius: 4,
-    marginRight: 5,
-    padding: 4
-  },
   filtersContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -54,5 +40,10 @@ export const advancedStyles = StyleSheet.create({
   textCenter: {
     color: colors.text,
     textAlign: 'center'
+  },
+  pickerStyle: {
+    inputAndroid: {
+      color: colors.text
+    }
   }
 })

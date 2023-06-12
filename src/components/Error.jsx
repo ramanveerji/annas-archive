@@ -9,13 +9,11 @@ const Error = ({ message, onRetryPress }) => (
     <Ionicons name="md-warning" size={64} color={colors.notification} />
     <Text style={style.text}>{message}</Text>
     {onRetryPress
-      ? (
-      <Button
-        title="Tentar novamente"
-        onPress={onRetryPress}
-        color={colors.button}
-      />
-        )
+      ? <Button
+          title="Tentar novamente"
+          onPress={onRetryPress}
+          color={colors.button}
+        />
       : null}
   </View>
 )

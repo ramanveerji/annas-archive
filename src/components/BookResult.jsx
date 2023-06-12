@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { colors } from '../init'
-import { Pressable, View, Text, Image, StyleSheet } from 'react-native'
+import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 
 const Result = ({ data, navigation }) => {
@@ -17,7 +17,7 @@ const Result = ({ data, navigation }) => {
     }
   }
   return (
-    <Pressable style={styles.container} onPress={onItemPress}>
+    <TouchableOpacity style={styles.container} onPress={onItemPress}>
       <Image
         source={{ uri: data.thumbnail_url }}
         style={styles.thumbnail}
@@ -33,7 +33,7 @@ const Result = ({ data, navigation }) => {
           : null
         }
       </View>
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 Result.propTypes = {

@@ -24,7 +24,7 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
             value={order}
             onValueChange={(v) => setOrder(v)}
             items={filters.orderBy}
-            style={pickerStyle}
+            style={advancedStyles.pickerStyle}
             useNativeAndroidPickerStyle={false}
           />
         </View>
@@ -35,7 +35,7 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
             value={extension}
             onValueChange={(v) => setExtension(v)}
             items={filters.extension}
-            style={pickerStyle}
+            style={advancedStyles.pickerStyle}
             useNativeAndroidPickerStyle={false}
           />
         </View>
@@ -46,12 +46,6 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
 SearchBar.propTypes = {
   initialQuery: PropTypes.string.isRequired,
   onSearchPress: PropTypes.func.isRequired
-}
-
-const pickerStyle = {
-  inputAndroid: {
-    color: colors.text
-  }
 }
 
 export default memo(SearchBar)
