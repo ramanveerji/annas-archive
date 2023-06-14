@@ -14,12 +14,12 @@ const BasicSearch = ({ onSearchRequest, initialQuery = '' }) => {
         value={query}
         onChangeText={(t) => setQuery(t)}
         style={basicStyles.searchInput}
-        placeholder="O que você deseja?"
+        placeholder="What you need?"
         placeholderTextColor={colors.placeholder}
         onSubmitEditing={search}
         enterKeyHint="search"
       />
-      <Button title="Procurar" onPress={search} />
+      <Button title="Search" onPress={search} />
     </View>
   )
 }

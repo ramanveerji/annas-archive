@@ -23,12 +23,12 @@ const Main = () => {
         />
         <Stack.Screen
           name="Search"
-          options={{ title: 'Procurar...' }}
+          options={{ title: 'Search...' }}
           component={SearchScreen}
         />
         <Stack.Screen
           name="Download"
-          options={{ title: 'Baixar' }}
+          options={{ title: 'Download' }}
           component={DownloadScreen}
         />
       </Stack.Navigator>

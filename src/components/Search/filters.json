@@ -1,29 +1,29 @@
 {
   "orderBy": [
     {
-      "label": "Relevante",
+      "label": "Relevant",
       "value": ""
     },
     {
-      "label": "Novos",
+      "label": "Newest",
       "value": "newest"
     },
     {
-      "label": "Antigos",
+      "label": "Oldest",
       "value": "oldest"
     },
     {
-      "label": "Grandes",
+      "label": "Largest",
       "value": "largest"
     },
     {
-      "label": "Pequenos",
+      "label": "Smallest",
       "value": "smallest"
     }
   ],
   "extension": [
     {
-      "label": "Todos",
+      "label": "ALL",
       "value": ""
     },
     {

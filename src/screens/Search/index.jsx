@@ -19,7 +19,7 @@ class SearchScreen extends PureComponent {
       loading: false
     })
     const onError = (error) => this.setState({
-      error: 'Deu erro nessa bagaça!\n' + JSON.stringify(error.response),
+      error: 'There\'s an error in this shit!\n' + JSON.stringify(error.response),
       loading: false
     })
     this.setState({ loading: true })
@@ -51,7 +51,7 @@ class SearchScreen extends PureComponent {
         onSearchPress={(...args) => this.search(...args)}
       />
       {this.state.loading
-        ? <Loading message="Procurando..." />
+        ? <Loading message="Searching..." />
         : (this.state.error ? this.renderError() : this.renderResults())
       }
     </View>

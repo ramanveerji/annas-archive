@@ -59,7 +59,7 @@ class DownloadScreen extends PureComponent {
   render = () => <>
     {this.state.loading
       ? <View style={styles.flex}>
-          <Loading message="Obtendo informações..." />
+          <Loading message="Getting data..." />
         </View>
       : (this.state.error
           ? <Error message={this.state.error} />

@@ -10,11 +10,7 @@ import Error from '../../components/Error'
 import BookResult from '../../components/BookResult'
 
 class HomeScreen extends PureComponent {
-  state = {
-    loading: true,
-    recommendations: [],
-    error: ''
-  }
+  state = { loading: true, recommendations: [], error: '' }
 
   componentDidMount = () => this.loadRecommendations()
 
@@ -25,7 +21,7 @@ class HomeScreen extends PureComponent {
     })
     const onError = (error) => this.setState({
       loading: false,
-      error: 'Deu erro!\n' + toString(error)
+      error: 'Error!\n' + toString(error)
     })
 
     axios.get(API_URL).then(onResponse).catch(onError)
@@ -47,7 +43,7 @@ class HomeScreen extends PureComponent {
 
   renderError = () => (
     <Error
-      message="Falha ao carregar resultados da pesquisa!"
+      message="Unable to get recommendations!"
       onRetryPress={() => this.loadRecommendations()} />
   )
 
@@ -58,7 +54,7 @@ class HomeScreen extends PureComponent {
         <BasicSearch onSearchRequest={onSearch} />
         <View style={styles.flex}>
           {this.state.loading
-            ? <Loading message="Carregando recomendações..." />
+            ? <Loading message="Getting recommendations..." />
             : (this.state.error ? this.renderError() : this.renderRecommendations())}
         </View>
       </View>

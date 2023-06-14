@@ -10,7 +10,7 @@ const Error = ({ message, onRetryPress }) => (
     <Text style={style.text}>{message}</Text>
     {onRetryPress
       ? <Button
-          title="Tentar novamente"
+          title="Try again"
           onPress={onRetryPress}
           color={colors.button}
         />

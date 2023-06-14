@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const openLink = (url) => {
   Linking.openURL(url)
     .catch(() => ToastAndroid.show(
-      'Não foi possível abrir o link!',
+      'Unable to open URL!',
       ToastAndroid.SHORT
     ))
 }
