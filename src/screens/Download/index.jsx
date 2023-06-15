@@ -18,6 +18,7 @@ class DownloadScreen extends PureComponent {
       data: response.data,
       loading: false
     })
+    // TODO: Create a correct error handling when not response was received
     const onError = (error) => this.setState({
       error: toString(error),
       loading: false

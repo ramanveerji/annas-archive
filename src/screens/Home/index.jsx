@@ -19,6 +19,7 @@ class HomeScreen extends PureComponent {
       loading: false,
       recommendations: response.data
     })
+    // TODO: handle no response from server
     const onError = (error) => this.setState({
       loading: false,
       error: 'Error!\n' + toString(error)

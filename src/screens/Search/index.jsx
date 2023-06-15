@@ -18,6 +18,7 @@ class SearchScreen extends PureComponent {
       results: response.data,
       loading: false
     })
+    // TODO: Handle no results or any other error from server
     const onError = (error) => this.setState({
       error: 'There\'s an error in this shit!\n' + JSON.stringify(error.response),
       loading: false
