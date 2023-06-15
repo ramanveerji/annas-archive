@@ -1,5 +1,6 @@
 import { PureComponent } from 'react'
 import { API_URL } from '../../init'
+import { axiosErrorHandler } from '../../utils'
 import { styles } from './styles'
 import { View, FlatList } from 'react-native'
 import axios from 'axios'
@@ -8,6 +9,7 @@ import { BasicSearch } from '../../components/Search'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
 import BookResult from '../../components/BookResult'
+import NoResult from '../../components/NoResult'
 
 class HomeScreen extends PureComponent {
   state = { loading: true, recommendations: [], error: '' }
@@ -19,12 +21,12 @@ class HomeScreen extends PureComponent {
       loading: false,
       recommendations: response.data
     })
-    // TODO: handle no response from server
     const onError = (error) => this.setState({
       loading: false,
-      error: 'Error!\n' + toString(error)
+      error: axiosErrorHandler(error)
     })
 
+    this.setState({ loading: true, error: '' })
     axios.get(API_URL).then(onResponse).catch(onError)
   }
 
@@ -44,7 +46,7 @@ class HomeScreen extends PureComponent {
 
   renderError = () => (
     <Error
-      message="Unable to get recommendations!"
+      message={this.state.error}
       onRetryPress={() => this.loadRecommendations()} />
   )
 
@@ -56,7 +58,12 @@ class HomeScreen extends PureComponent {
         <View style={styles.flex}>
           {this.state.loading
             ? <Loading message="Getting recommendations..." />
-            : (this.state.error ? this.renderError() : this.renderRecommendations())}
+            : this.state.error
+              ? this.renderError()
+              : this.state.recommendations.length > 0
+                ? this.renderRecommendations()
+                : <NoResult message="No recommendations this time :)" />
+          }
         </View>
       </View>
     )

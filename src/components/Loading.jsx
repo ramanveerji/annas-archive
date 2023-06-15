@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const Loading = ({ message }) => (
   <View style={style.root}>
-    <ActivityIndicator size={56} color={colors.loadingAnimation} />
+    <ActivityIndicator size={64} color={colors.loadingAnimation} />
     <Text style={style.text}>{message}</Text>
   </View>
 )

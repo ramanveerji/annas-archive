@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 7,
+    padding: 9,
     borderRadius: 4
   }
 })

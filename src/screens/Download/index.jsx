@@ -1,5 +1,6 @@
 import { PureComponent } from 'react'
 import { API_URL } from '../../init'
+import { axiosErrorHandling } from '../../utils'
 import { View, Text, Image, ScrollView } from 'react-native'
 import axios from 'axios'
 import PropTypes from 'prop-types'
@@ -18,12 +19,12 @@ class DownloadScreen extends PureComponent {
       data: response.data,
       loading: false
     })
-    // TODO: Create a correct error handling when not response was received
     const onError = (error) => this.setState({
-      error: toString(error),
+      error: axiosErrorHandling(error),
       loading: false
     })
 
+    this.setState({ loading: true, error: '' })
     const params = { path: this.props.route.params.path }
     axios.get(`${API_URL}/download`, { params }).then(onResponse).catch(onError)
   }
@@ -57,15 +58,18 @@ class DownloadScreen extends PureComponent {
     )
   }
 
+  renderError = () => (
+    <Error
+      message={this.state.error}
+      onRetryPress={() => this.getDownloadData()} />
+  )
+
   render = () => <>
     {this.state.loading
-      ? <View style={styles.flex}>
-          <Loading message="Getting data..." />
-        </View>
-      : (this.state.error
-          ? <Error message={this.state.error} />
-          : <ScrollView>{this.renderDownloadInformation()}</ScrollView>
-        )
+      ? <Loading message="Getting data..." />
+      : this.state.error
+        ? this.renderError()
+        : <ScrollView>{this.renderDownloadInformation()}</ScrollView>
     }
   </>
 }

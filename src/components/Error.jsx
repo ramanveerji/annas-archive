@@ -1,18 +1,19 @@
 import { memo } from 'react'
 import { colors } from '../init'
-import { Button, View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import Button from './Button'
 import PropTypes from 'prop-types'
 
 const Error = ({ message, onRetryPress }) => (
   <View style={style.root}>
-    <Ionicons name="md-warning" size={64} color={colors.notification} />
+    <Ionicons name="md-warning" size={128} color={colors.notification} />
     <Text style={style.text}>{message}</Text>
     {onRetryPress
       ? <Button
           title="Try again"
           onPress={onRetryPress}
-          color={colors.button}
+          style={style.button}
         />
       : null}
   </View>
@@ -31,6 +32,10 @@ const style = StyleSheet.create({
   text: {
     color: colors.text,
     textAlign: 'center',
+    fontSize: 16,
+    marginBottom: 20
+  },
+  button: {
     fontSize: 16
   }
 })

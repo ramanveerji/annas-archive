@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../init'
 
 const styles = StyleSheet.create({
-  flex: {
-    flex: 1
-  },
   contentContainer: {
     padding: 6
   },

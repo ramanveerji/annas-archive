@@ -1,12 +1,14 @@
 import { PureComponent } from 'react'
 import { API_URL } from '../../init'
+import { axiosErrorHandler } from '../../utils'
 import { FlatList, View } from 'react-native'
+import { AdvancedSearch } from '../../components/Search'
 import axios from 'axios'
 import PropTypes from 'prop-types'
-import { AdvancedSearch } from '../../components/Search'
 import BookResult from '../../components/BookResult'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
+import NoResult from '../../components/NoResult'
 
 class SearchScreen extends PureComponent {
   state = { loading: true, results: [], error: null }
@@ -18,13 +20,12 @@ class SearchScreen extends PureComponent {
       results: response.data,
       loading: false
     })
-    // TODO: Handle no results or any other error from server
     const onError = (error) => this.setState({
-      error: 'There\'s an error in this shit!\n' + JSON.stringify(error.response),
+      error: axiosErrorHandler(error),
       loading: false
     })
-    this.setState({ loading: true })
 
+    this.setState({ loading: true, error: '' })
     const params = { q: query, sort: orderBy, ext: extension }
     axios.get(`${API_URL}/search`, { params }).then(onResponse).catch(onError)
   }
@@ -53,7 +54,11 @@ class SearchScreen extends PureComponent {
       />
       {this.state.loading
         ? <Loading message="Searching..." />
-        : (this.state.error ? this.renderError() : this.renderResults())
+        : this.state.error
+          ? this.renderError()
+          : this.state.results.length > 0
+            ? this.renderResults()
+            : <NoResult message='No results found!' />
       }
     </View>
   )
