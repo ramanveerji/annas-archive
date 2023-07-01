@@ -1,9 +1,10 @@
-import { memo, useState } from 'react'
-import { colors } from '../../init'
-import { basicStyles } from './styles'
-import { TextInput, View } from 'react-native'
 import PropTypes from 'prop-types'
+import { memo, useState } from 'react'
+import { TextInput, View } from 'react-native'
+
+import { colors } from '../../init'
 import Button from '../Button'
+import { basicStyles } from './styles'
 
 const BasicSearch = ({ onSearchRequest, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery)

@@ -1,34 +1,30 @@
-import { memo } from 'react'
-import { colors } from '../init'
-import { TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
+import { memo } from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
+import { colors } from '../init'
 
 const Result = ({ data, navigation }) => {
-  let fileInfo = null
-  if (data.file_info) {
-    const { language, extension, size } = data.file_info
-    fileInfo = [language, extension, size].filter(i => i !== null)
-  }
   const onItemPress = () => {
-    if (data.url.startsWith('/search')) {
-      navigation.navigate('Search', { query: data.title })
+    if (data.path) {
+      navigation.navigate('Download', { path: data.path })
     } else {
-      navigation.navigate('Download', { path: data.url })
+      navigation.navigate('Search', { query: data.title })
     }
   }
   return (
     <TouchableOpacity style={styles.container} onPress={onItemPress}>
       <Image
-        source={{ uri: data.thumbnail_url }}
+        source={{ uri: data.thumbnail }}
         style={styles.thumbnail}
         resizeMode="contain"
       />
       <View style={styles.informationArea}>
         <Text style={styles.title}>{data.title}</Text>
-        <Text style={styles.authors}>{data.authors.join(', ')}</Text>
-        {fileInfo
+        <Text style={styles.authors}>{data.authors}</Text>
+        {data.file_info
           ? <Text style={styles.fileInfo}>
-              {Object.values(fileInfo).join(', ')}
+              {Object.values(data.file_info).join(', ')}
             </Text>
           : null
         }

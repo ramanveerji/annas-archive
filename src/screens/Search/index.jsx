@@ -1,14 +1,15 @@
-import { PureComponent } from 'react'
-import { API_URL } from '../../init'
-import { axiosErrorHandler } from '../../utils'
-import { FlatList, View } from 'react-native'
-import { AdvancedSearch } from '../../components/Search'
 import axios from 'axios'
 import PropTypes from 'prop-types'
+import { PureComponent } from 'react'
+import { FlatList, View } from 'react-native'
+
 import BookResult from '../../components/BookResult'
-import Loading from '../../components/Loading'
 import Error from '../../components/Error'
+import Loading from '../../components/Loading'
 import NoResult from '../../components/NoResult'
+import { AdvancedSearch } from '../../components/Search'
+import { API_URL } from '../../init'
+import { axiosErrorHandler } from '../../utils'
 
 class SearchScreen extends PureComponent {
   state = { loading: true, results: [], error: null }

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+
 import { colors } from '../../init'
 
 const styles = StyleSheet.create({
@@ -16,8 +17,14 @@ const styles = StyleSheet.create({
     width: 200,
     height: 354
   },
+  shadow: {
+    borderRadius: 8,
+    elevation: 20,
+    shadowColor: '#000'
+  },
   title: {
     textAlign: 'center',
+    marginHorizontal: 8,
     marginBottom: 4,
     fontSize: 24,
     color: colors.title
@@ -25,7 +32,7 @@ const styles = StyleSheet.create({
   authors: {
     textAlign: 'center',
     marginBottom: 10,
-    fontSize: 13,
+    fontSize: 14,
     fontStyle: 'italic',
     color: colors.text
   },

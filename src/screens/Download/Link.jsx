@@ -1,7 +1,8 @@
-import { memo } from 'react'
-import { TouchableOpacity, Text, Linking, ToastAndroid } from 'react-native'
-import styles from './styles'
 import PropTypes from 'prop-types'
+import { memo } from 'react'
+import { Linking, Text, ToastAndroid, TouchableOpacity } from 'react-native'
+
+import styles from './styles'
 
 const openLink = (url) => {
   Linking.openURL(url)

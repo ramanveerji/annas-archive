@@ -1,11 +1,14 @@
 {
-    "eslint.format.enable": true,
-    "editor.formatOnSave": true,
-    "editor.tabSize": 2,
-    "cSpell.language": "en,pt,pt-BR",
-    "cSpell.words": [
-        "Ionicons",
-        "MOBI",
-        "Pressable"
-    ]
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "cSpell.language": "en,pt,pt-BR",
+  "cSpell.words": [
+    "Ionicons",
+    "MOBI",
+    "Pressable"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

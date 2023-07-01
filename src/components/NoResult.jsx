@@ -1,8 +1,9 @@
-import { memo } from 'react'
-import { colors } from '../init'
-import { StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
+import { memo } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+
+import { colors } from '../init'
 
 const NoResult = ({ message }) => (
   <View style={style.root}>

@@ -1,7 +1,8 @@
-import { memo } from 'react'
-import { colors } from '../init'
-import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
+import { memo } from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+
+import { colors } from '../init'
 
 const defaultStyle = { color: colors.buttonText }
 

@@ -1,15 +1,16 @@
+import axios from 'axios'
+import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
+import { FlatList, View } from 'react-native'
+
+import BookResult from '../../components/BookResult'
+import Error from '../../components/Error'
+import Loading from '../../components/Loading'
+import NoResult from '../../components/NoResult'
+import { BasicSearch } from '../../components/Search'
 import { API_URL } from '../../init'
 import { axiosErrorHandler } from '../../utils'
 import { styles } from './styles'
-import { View, FlatList } from 'react-native'
-import axios from 'axios'
-import PropTypes from 'prop-types'
-import { BasicSearch } from '../../components/Search'
-import Loading from '../../components/Loading'
-import Error from '../../components/Error'
-import BookResult from '../../components/BookResult'
-import NoResult from '../../components/NoResult'
 
 class HomeScreen extends PureComponent {
   state = { loading: true, recommendations: [], error: '' }

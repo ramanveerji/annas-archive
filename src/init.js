@@ -1,7 +1,7 @@
 import { Appearance } from 'react-native'
 
 const isDarkTheme = Appearance.getColorScheme() === 'dark'
-export const API_URL = 'http://dheisom.vps-kinghost.net:1337'
+export const API_URL = 'http://dheisom.vps-kinghost.net:1338'
 
 export const darkColors = {
   // backgrounds

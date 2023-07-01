@@ -1,12 +1,13 @@
-import { memo, useState } from 'react'
-import { advancedStyles } from './styles'
-import { colors } from '../../init'
-import { Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { Picker } from '@react-native-picker/picker'
-import filters from './filters.json'
 import PropTypes from 'prop-types'
+import { memo, useState } from 'react'
+import { Text, View } from 'react-native'
+
+import { colors } from '../../init'
 import BasicSearch from './Basic'
+import filters from './filters.json'
+import { advancedStyles } from './styles'
 
 const pickerItem = (item, index) => (
   <Picker.Item

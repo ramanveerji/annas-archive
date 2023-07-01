@@ -1,11 +1,12 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { navigationTheme } from './init'
-import { StatusBar } from 'expo-status-bar'
 import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import * as NavigationBar from 'expo-navigation-bar'
+import { StatusBar } from 'expo-status-bar'
+
+import { navigationTheme } from './init'
+import DownloadScreen from './screens/Download'
 import HomeScreen from './screens/Home'
 import SearchScreen from './screens/Search'
-import DownloadScreen from './screens/Download'
 
 const Stack = createNativeStackNavigator()
 
