@@ -12,18 +12,28 @@ import { API_URL } from '../../init'
 import { axiosErrorHandler } from '../../utils'
 
 class SearchScreen extends PureComponent {
-  state = { loading: true, results: [], error: null }
+  state = {
+    loading: false,
+    results: [],
+    lastSearchParameters: [],
+    error: null
+  }
 
   componentDidMount = () => this.search(this.props.route.params.query, '', '')
 
   search = async (query, orderBy, extension) => {
+    if (this.state.loading) return
     if (!query.trim()) {
       return ToastAndroid.show(
         'Are you kidding with me?',
         ToastAndroid.SHORT
       )
     }
-    this.setState({ loading: true, error: null })
+    this.setState({
+      lastSearchParameters: [query, orderBy, extension],
+      loading: true,
+      error: null
+    })
     let response
 
     try {
@@ -57,7 +67,9 @@ class SearchScreen extends PureComponent {
       {this.state.loading
         ? <Loading message="Searching..." />
         : this.state.error
-          ? <Error message={this.state.error} />
+          ? <Error
+              message={this.state.error}
+              onRetryPress={() => this.search(...this.state.lastSearchParameters)} />
           : this.state.results.length > 0
             ? <FlatList
                 data={this.state.results}

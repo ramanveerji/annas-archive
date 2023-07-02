@@ -13,11 +13,12 @@ import { axiosErrorHandler } from '../../utils'
 import { styles } from './styles'
 
 class HomeScreen extends PureComponent {
-  state = { loading: true, recommendations: [], error: null }
+  state = { loading: false, recommendations: [], error: null }
 
   componentDidMount = () => this.loadRecommendations()
 
   loadRecommendations = async () => {
+    if (this.state.loading) return
     this.setState({ loading: true, error: null })
     let response
     try {
