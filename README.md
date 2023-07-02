@@ -6,32 +6,22 @@
 An unofficial [Anna's Archive] mobile application create using React Native
 and getting data from another unofficial [API] create and hosted by me.
 
+**Warning: This app's intention is not to proliferate piracy, it's just for my study of React Native mobile application development**
+
+**I don't encourage any way of piracy**
+
 ## Screenshots
 
-**Light theme**
+> theme based on [Dracula]
 
 <div align='center' >
-  <img src="https://imgur.com/EMNtAyL.jpg" height=400 />
-  <img src="https://imgur.com/sJvM5ji.jpg" height=400 />
+  <img src="https://imgur.com/2skQylH.jpg" height=400 />
+  <img src="https://imgur.com/OuFbh7J.jpg" height=400 />
 </div>
 
 <div align='center' >
-  <img src="https://imgur.com/b1o9iOQ.jpg" height=400 />
-  <img src="https://imgur.com/k8KjlY7.jpg" height=400 />
-</div>
-
-**Dark theme**
-
-> based on [Dracula]
-
-<div align='center' >
-  <img src="https://imgur.com/vRdfOsJ.jpg" height=400 />
-  <img src="https://imgur.com/1pBPg8E.jpg" height=400 />
-</div>
-
-<div align='center' >
-  <img src="https://imgur.com/kDLUksM.jpg" height=400 />
-  <img src="https://imgur.com/u2uQoLX.jpg" height=400 />
+  <img src="https://imgur.com/EFgmjm4.jpg" height=400 />
+  <img src="https://imgur.com/fjKJLJx.jpg" height=400 />
 </div>
 
 [Anna's Archive]: <https://annas-archive.org>
