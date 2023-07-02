@@ -8,6 +8,7 @@ import Loading from '../../components/Loading'
 import { API_URL } from '../../init'
 import { axiosErrorHandling } from '../../utils'
 import Link from './Link'
+import ShareButton from './ShareButton'
 import styles from './styles'
 
 const DownloadPage = ({ data }) => (
@@ -51,6 +52,17 @@ const DownloadLinks = ({ links }) => links.map(
 class DownloadScreen extends PureComponent {
   state = { loading: true, data: {}, error: null }
 
+  constructor (props) {
+    super(props)
+    this.props.navigation.setOptions({
+      headerRight: () => (
+        <ShareButton
+          title={this.props.route.params.title}
+          path={this.props.route.params.path} />
+      )
+    })
+  }
+
   componentDidMount = () => this.getDownloadData()
 
   getDownloadData = async () => {
@@ -80,6 +92,9 @@ class DownloadScreen extends PureComponent {
     }
   </>
 }
-DownloadScreen.propTypes = { route: PropTypes.object.isRequired }
+DownloadScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  route: PropTypes.object.isRequired
+}
 
 export default DownloadScreen

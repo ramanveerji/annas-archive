@@ -7,7 +7,7 @@ import { colors } from '../init'
 const Result = ({ data, navigation }) => {
   const onItemPress = () => {
     if (data.path) {
-      navigation.navigate('Download', { path: data.path })
+      navigation.navigate('Download', { title: data.title, path: data.path })
     } else {
       navigation.navigate('Search', { query: data.title })
     }
