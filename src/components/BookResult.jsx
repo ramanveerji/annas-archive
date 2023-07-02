@@ -22,12 +22,11 @@ const Result = ({ data, navigation }) => {
       <View style={styles.informationArea}>
         <Text style={styles.title}>{data.title}</Text>
         <Text style={styles.authors}>{data.authors}</Text>
-        {data.file_info
-          ? <Text style={styles.fileInfo}>
-              {Object.values(data.file_info).join(', ')}
-            </Text>
-          : null
-        }
+        {data.file_info && (
+          <Text style={styles.fileInfo}>
+            {Object.values(data.file_info).join(', ')}
+          </Text>
+        )}
       </View>
     </TouchableOpacity>
   )

@@ -24,7 +24,7 @@ const DownloadPage = ({ data }) => (
     </View>
     <Text style={styles.title}>{data.title}</Text>
     <Text style={styles.authors}>{data.authors}</Text>
-    {data.description ? <Description description={data.description} /> : null}
+    {data.description && <Description description={data.description} />}
     <View style={styles.downloads}>
       <DownloadLinks links={data.download_links} />
     </View>

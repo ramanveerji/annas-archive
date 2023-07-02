@@ -10,13 +10,13 @@ const Error = ({ message, onRetryPress }) => (
   <View style={style.root}>
     <Ionicons name="md-warning" size={128} color={colors.notification} />
     <Text style={style.text}>{message}</Text>
-    {onRetryPress
-      ? <Button
-          title="Try again"
-          onPress={onRetryPress}
-          style={style.button}
-        />
-      : null}
+    {onRetryPress && (
+      <Button
+        title="Try again"
+        onPress={onRetryPress}
+        style={style.button}
+      />
+    )}
   </View>
 )
 Error.propTypes = {
