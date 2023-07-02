@@ -49,20 +49,22 @@ const DownloadLinks = ({ links }) => links.map(
 )
 
 class DownloadScreen extends PureComponent {
-  state = { loading: true, data: {}, error: '' }
+  state = { loading: true, data: {}, error: null }
 
   componentDidMount = () => this.getDownloadData()
 
-  getDownloadData () {
-    const onResponse = ({ data }) => this.setState({ data, loading: false })
-    const onError = (error) => this.setState({
-      error: axiosErrorHandling(error),
-      loading: false
-    })
-
-    this.setState({ loading: true, error: '' })
-    const params = { path: this.props.route.params.path }
-    axios.get(`${API_URL}/download`, { params }).then(onResponse).catch(onError)
+  getDownloadData = async () => {
+    this.setState({ loading: true, error: null })
+    let response
+    try {
+      response = await axios.get(
+        `${API_URL}/download`,
+        { params: { path: this.props.route.params.path } }
+      )
+    } catch (error) {
+      return this.setState({ error: axiosErrorHandling(error), loading: false })
+    }
+    this.setState({ data: response.data, loading: false })
   }
 
   render = () => <>
@@ -71,7 +73,7 @@ class DownloadScreen extends PureComponent {
       : this.state.error
         ? <Error
             message={this.state.error}
-            onRetryPress={() => this.getDownloadData()} />
+            onRetryPress={this.getDownloadData} />
         : <ScrollView>
             <DownloadPage data={this.state.data} />
           </ScrollView>

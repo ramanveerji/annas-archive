@@ -25,7 +25,7 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
 
   return (
     <View style={advancedStyles.container}>
-      <BasicSearch onSearchRequest={(t) => search(t)} initialQuery={initialQuery} />
+      <BasicSearch onSearchRequest={search} initialQuery={initialQuery} />
       <View style={advancedStyles.filtersContainer}>
         <View style={advancedStyles.filter}>
           <Ionicons name="reorder-three" size={24} color={colors.loadingAnimation} />

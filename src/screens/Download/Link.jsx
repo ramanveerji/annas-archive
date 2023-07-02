@@ -4,12 +4,15 @@ import { Linking, Text, ToastAndroid, TouchableOpacity } from 'react-native'
 
 import styles from './styles'
 
-const openLink = (url) => {
-  Linking.openURL(url)
-    .catch(() => ToastAndroid.show(
+const openLink = async (url) => {
+  try {
+    Linking.openURL(url)
+  } catch {
+    ToastAndroid.show(
       'Unable to open URL!',
       ToastAndroid.SHORT
-    ))
+    )
+  }
 }
 
 const Link = ({ title, url }) => (

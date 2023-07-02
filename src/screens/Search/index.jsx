@@ -1,7 +1,7 @@
 import axios from 'axios'
 import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
-import { FlatList, View } from 'react-native'
+import { FlatList, ToastAndroid, View } from 'react-native'
 
 import BookResult from '../../components/BookResult'
 import Error from '../../components/Error'
@@ -16,19 +16,28 @@ class SearchScreen extends PureComponent {
 
   componentDidMount = () => this.search(this.props.route.params.query, '', '')
 
-  search (query, orderBy, extension) {
-    const onResponse = (response) => this.setState({
-      results: response.data,
-      loading: false
-    })
-    const onError = (error) => this.setState({
-      error: axiosErrorHandler(error),
-      loading: false
-    })
+  search = async (query, orderBy, extension) => {
+    if (!query.trim()) {
+      return ToastAndroid.show(
+        'Are you kidding with me?',
+        ToastAndroid.SHORT
+      )
+    }
+    this.setState({ loading: true, error: null })
+    let response
 
-    this.setState({ loading: true, error: '' })
-    const params = { q: query, sort: orderBy, ext: extension }
-    axios.get(`${API_URL}/search`, { params }).then(onResponse).catch(onError)
+    try {
+      response = await axios.get(
+        `${API_URL}/search`,
+        { params: { q: query, sort: orderBy, ext: extension } }
+      )
+    } catch (error) {
+      return this.setState({
+        error: axiosErrorHandler(error),
+        loading: false
+      })
+    }
+    this.setState({ results: response.data, loading: false })
   }
 
   renderBookResult = ({ item, index }) => (
@@ -39,26 +48,20 @@ class SearchScreen extends PureComponent {
     />
   )
 
-  renderResults = () => (
-    <FlatList
-      data={this.state.results}
-      renderItem={this.renderBookResult} />
-  )
-
-  renderError = () => <Error message={this.state.error} />
-
   render = () => (
     <View style={{ flex: 1 }}>
       <AdvancedSearch
         initialQuery={this.props.route.params.query}
-        onSearchPress={(...args) => this.search(...args)}
+        onSearchPress={this.search}
       />
       {this.state.loading
         ? <Loading message="Searching..." />
         : this.state.error
-          ? this.renderError()
+          ? <Error message={this.state.error} />
           : this.state.results.length > 0
-            ? this.renderResults()
+            ? <FlatList
+                data={this.state.results}
+                renderItem={this.renderBookResult} />
             : <NoResult message='No results found!' />
       }
     </View>
