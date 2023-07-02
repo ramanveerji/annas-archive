@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
 import { memo } from 'react'
-import { Pressable, Share, ToastAndroid } from 'react-native'
+import { Share, ToastAndroid, TouchableOpacity } from 'react-native'
 
 import { colors } from '../../init'
 
@@ -17,9 +17,9 @@ const ShareButton = ({ title, path }) => {
     }
   }
   return (
-    <Pressable onPress={share}>
+    <TouchableOpacity onPress={share}>
       <Ionicons name='md-share-social-sharp' size={24} color={colors.button} />
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 ShareButton.propTypes = {

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   shadow: {
     borderRadius: 8,
     elevation: 20,
-    shadowColor: '#000'
+    shadowColor: colors.shadow
   },
   title: {
     textAlign: 'center',

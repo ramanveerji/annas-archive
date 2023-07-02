@@ -17,7 +17,8 @@ export const darkColors = {
   // others
   border: '#6272a4',
   notification: '#ff5555',
-  loadingAnimation: '#bd93f9'
+  loadingAnimation: '#bd93f9',
+  shadow: '#8be9fd'
 }
 
 export const lightColors = {
@@ -34,7 +35,8 @@ export const lightColors = {
   // others
   border: '#9BABB8',
   notification: '#ff5555',
-  loadingAnimation: '#D7C0AE'
+  loadingAnimation: '#D7C0AE',
+  shadow: '#000'
 }
 
 export const colors = isDarkTheme ? darkColors : lightColors
