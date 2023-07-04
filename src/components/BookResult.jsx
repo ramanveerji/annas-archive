@@ -4,6 +4,16 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { colors } from '../init'
 
+const FileInfo = ({ data }) => {
+  const info = Object.values(data).filter(i => i != null)
+  return (
+    <Text style={styles.fileInfo}>
+      {info.join(', ')}
+    </Text>
+  )
+}
+FileInfo.propTypes = { data: PropTypes.object.isRequired }
+
 const Result = ({ data, navigation }) => {
   const onItemPress = () => {
     if (data.path) {
@@ -22,11 +32,7 @@ const Result = ({ data, navigation }) => {
       <View style={styles.informationArea}>
         <Text style={styles.title}>{data.title}</Text>
         <Text style={styles.authors}>{data.authors}</Text>
-        {data.file_info && (
-          <Text style={styles.fileInfo}>
-            {Object.values(data.file_info).join(', ')}
-          </Text>
-        )}
+        {data.file_info && <FileInfo data={data.file_info} />}
       </View>
     </TouchableOpacity>
   )
