@@ -15,13 +15,13 @@ NoResult.propTypes = { message: PropTypes.string.isRequired }
 
 const style = StyleSheet.create({
   root: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center'
   },
   text: {
-    fontSize: 15,
-    color: colors.text
+    color: colors.text,
+    fontSize: 15
   }
 })
 

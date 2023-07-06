@@ -14,14 +14,14 @@ Loading.propTypes = { message: PropTypes.string.isRequired }
 
 const style = StyleSheet.create({
   root: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center'
   },
   text: {
     color: colors.text,
-    marginTop: 15,
     fontSize: 16,
+    marginTop: 15,
     textAlign: 'center'
   }
 })

@@ -4,20 +4,20 @@ import { colors } from '../../init'
 
 export const basicStyles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    marginBottom: 6,
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
     margin: 6,
-    justifyContent: 'center'
+    marginBottom: 6
   },
   searchInput: {
-    flex: 1,
     borderColor: colors.border,
-    borderWidth: 2,
     borderRadius: 3,
+    borderWidth: 2,
+    color: colors.text,
+    flex: 1,
     marginRight: 5,
-    padding: 4,
-    color: colors.text
+    padding: 4
   }
 })
 
@@ -27,27 +27,27 @@ export const advancedStyles = StyleSheet.create({
     margin: 6
   },
   filtersContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'center'
   },
   filter: {
-    flex: 1,
-    marginHorizontal: 6,
     alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
-    flexDirection: 'row'
+    marginHorizontal: 6
   },
   textCenter: {
     color: colors.text,
     textAlign: 'center'
   },
   picker: {
-    flex: 1,
-    color: colors.text
+    color: colors.text,
+    flex: 1
   },
   pickerItem: {
-    color: colors.text,
-    backgroundColor: colors.background
+    backgroundColor: colors.background,
+    color: colors.text
   }
 })

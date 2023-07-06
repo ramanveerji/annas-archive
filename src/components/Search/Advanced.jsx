@@ -30,11 +30,12 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
         <View style={advancedStyles.filter}>
           <Ionicons name="reorder-three" size={24} color={colors.loadingAnimation} />
           <Picker
-            selectedValue={order}
-            onValueChange={(v) => setOrder(v)}
-            style={advancedStyles.picker}
+            dropdownIconColor={colors.button}
             mode="dropdown"
-            dropdownIconColor={colors.background}>
+            onValueChange={setOrder}
+            selectedValue={order}
+            style={advancedStyles.picker}
+          >
             {filters.orderBy.map(pickerItem)}
           </Picker>
         </View>
@@ -42,11 +43,12 @@ const SearchBar = ({ initialQuery, onSearchPress }) => {
         <View style={advancedStyles.filter}>
           <Ionicons name="document-outline" size={24} color={colors.loadingAnimation} />
           <Picker
-            selectedValue={extension}
-            onValueChange={(v) => setExtension(v)}
-            style={advancedStyles.picker}
+            dropdownIconColor={colors.button}
             mode="dropdown"
-            dropdownIconColor={colors.background}>
+            onValueChange={setExtension}
+            selectedValue={extension}
+            style={advancedStyles.picker}
+          >
             {filters.extension.map(pickerItem)}
           </Picker>
         </View>

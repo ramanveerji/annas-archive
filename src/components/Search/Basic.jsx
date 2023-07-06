@@ -12,13 +12,13 @@ const BasicSearch = ({ onSearchRequest, initialQuery = '' }) => {
   return (
     <View style={basicStyles.container}>
       <TextInput
-        value={query}
-        onChangeText={(t) => setQuery(t)}
-        style={basicStyles.searchInput}
+        enterKeyHint="search"
+        onChangeText={setQuery}
+        onSubmitEditing={search}
         placeholder="What you need?"
         placeholderTextColor={colors.placeholder}
-        onSubmitEditing={search}
-        enterKeyHint="search"
+        style={basicStyles.searchInput}
+        value={query}
       />
       <Button title="Search" onPress={search} />
     </View>

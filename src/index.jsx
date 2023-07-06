@@ -18,19 +18,19 @@ const Main = () => {
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator>
         <Stack.Screen
+          component={HomeScreen}
           name="Home"
           options={{ title: "Anna's Archive" }}
-          component={HomeScreen}
         />
         <Stack.Screen
+          component={SearchScreen}
           name="Search"
           options={{ title: 'Search...' }}
-          component={SearchScreen}
         />
         <Stack.Screen
+          component={DownloadScreen}
           name="Download"
           options={{ title: 'Download' }}
-          component={DownloadScreen}
         />
       </Stack.Navigator>
       <StatusBar style={reverseTheme} />

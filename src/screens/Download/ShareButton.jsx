@@ -23,8 +23,8 @@ const ShareButton = ({ title, path }) => {
   )
 }
 ShareButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }
 
 export default memo(ShareButton)

@@ -30,9 +30,9 @@ class SearchScreen extends PureComponent {
       )
     }
     this.setState({
+      error: null,
       lastSearchParameters: [query, orderBy, extension],
-      loading: true,
-      error: null
+      loading: true
     })
     let response
 
@@ -52,8 +52,8 @@ class SearchScreen extends PureComponent {
 
   renderBookResult = ({ item, index }) => (
     <BookResult
-      key={index}
       data={item}
+      key={index}
       navigation={this.props.navigation}
     />
   )

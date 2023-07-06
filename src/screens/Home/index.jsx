@@ -31,21 +31,18 @@ class HomeScreen extends PureComponent {
 
   renderBookItem = ({ item, index }) => (
     <BookResult
-      key={index}
       data={item}
+      key={index}
       navigation={this.props.navigation}
     />
   )
 
-  onSearch = (query) => {
-    if (!query.trim()) {
-      return ToastAndroid.show(
-        "Can't search for an empty query :)",
-        ToastAndroid.SHORT
-      )
-    }
-    this.props.navigation.navigate('Search', { query })
-  }
+  onSearch = (query) => query.trim()
+    ? this.props.navigation.navigate('Search', { query })
+    : ToastAndroid.show(
+      "Can't search for an empty query :)",
+      ToastAndroid.SHORT
+    )
 
   render = () => (
     <View style={styles.flex}>

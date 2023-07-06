@@ -12,9 +12,9 @@ const Error = ({ message, onRetryPress }) => (
     <Text style={style.text}>{message}</Text>
     {onRetryPress && (
       <Button
-        title="Try again"
         onPress={onRetryPress}
         style={style.button}
+        title="Try again"
       />
     )}
   </View>
@@ -26,15 +26,15 @@ Error.propTypes = {
 
 const style = StyleSheet.create({
   root: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center'
   },
   text: {
     color: colors.text,
-    textAlign: 'center',
     fontSize: 16,
-    marginBottom: 20
+    marginBottom: 20,
+    textAlign: 'center'
   },
   button: {
     fontSize: 16

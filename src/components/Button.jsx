@@ -15,18 +15,18 @@ const Button = ({ title, onPress, color = colors.button, style = defaultStyle })
   </TouchableOpacity>
 )
 Button.propTypes = {
-  title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
   color: PropTypes.string,
-  style: PropTypes.object
+  onPress: PropTypes.func.isRequired,
+  style: PropTypes.object,
+  title: PropTypes.string.isRequired
 }
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    borderRadius: 4,
     justifyContent: 'center',
-    padding: 9,
-    borderRadius: 4
+    padding: 9
   }
 })
 

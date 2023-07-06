@@ -41,13 +41,13 @@ export const lightColors = {
 
 export const colors = isDarkTheme ? darkColors : lightColors
 export const navigationTheme = {
-  dark: isDarkTheme,
   colors: {
-    primary: colors.button,
     background: colors.background,
-    card: colors.background,
-    text: colors.text,
     border: colors.border,
-    notification: colors.notification
-  }
+    card: colors.background,
+    notification: colors.notification,
+    primary: colors.button,
+    text: colors.text
+  },
+  dark: isDarkTheme
 }

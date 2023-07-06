@@ -15,19 +15,15 @@ const FileInfo = ({ data }) => {
 FileInfo.propTypes = { data: PropTypes.object.isRequired }
 
 const Result = ({ data, navigation }) => {
-  const onItemPress = () => {
-    if (data.path) {
-      navigation.navigate('Download', { title: data.title, path: data.path })
-    } else {
-      navigation.navigate('Search', { query: data.title })
-    }
-  }
+  const onItemPress = () => data.path
+    ? navigation.navigate('Download', { title: data.title, path: data.path })
+    : navigation.navigate('Search', { query: data.title })
   return (
     <TouchableOpacity style={styles.container} onPress={onItemPress}>
       <Image
+        resizeMode="contain"
         source={{ uri: data.thumbnail }}
         style={styles.thumbnail}
-        resizeMode="contain"
       />
       <View style={styles.informationArea}>
         <Text style={styles.title}>{data.title}</Text>
@@ -44,24 +40,24 @@ Result.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    margin: 8,
-    padding: 12,
+    alignItems: 'center',
     backgroundColor: colors.container,
     borderRadius: 6,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    margin: 8,
+    padding: 12
   },
   thumbnail: {
-    height: 175,
-    width: 99,
     backgroundColor: colors.thumbnail,
     borderRadius: 6,
-    marginRight: 12
+    height: 175,
+    marginRight: 12,
+    width: 99
   },
   informationArea: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center'
   },
   title: {
@@ -70,10 +66,10 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   authors: {
-    marginVertical: 5,
-    textAlign: 'center',
     color: colors.text,
-    fontStyle: 'italic'
+    fontStyle: 'italic',
+    marginVertical: 5,
+    textAlign: 'center'
   },
   fileInfo: {
     color: colors.text,

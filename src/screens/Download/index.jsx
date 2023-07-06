@@ -16,8 +16,8 @@ const DownloadPage = ({ data }) => (
     <View style={styles.thumbnailContainer}>
       <View style={styles.shadow}>
         <Image
-          source={{ uri: data.thumbnail }}
           resizeMode="contain"
+          source={{ uri: data.thumbnail }}
           style={styles.thumbnail}
         />
       </View>
@@ -57,8 +57,8 @@ class DownloadScreen extends PureComponent {
     this.props.navigation.setOptions({
       headerRight: () => (
         <ShareButton
-          title={this.props.route.params.title}
-          path={this.props.route.params.path} />
+          path={this.props.route.params.path}
+          title={this.props.route.params.title} />
       )
     })
   }

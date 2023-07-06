@@ -7,15 +7,15 @@ const styles = StyleSheet.create({
     padding: 6
   },
   thumbnailContainer: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     padding: 16
   },
   thumbnail: {
     backgroundColor: colors.thumbnail,
     borderRadius: 12,
-    width: 200,
-    height: 354
+    height: 354,
+    width: 200
   },
   shadow: {
     borderRadius: 8,
@@ -23,43 +23,43 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow
   },
   title: {
-    textAlign: 'center',
-    marginHorizontal: 8,
-    marginBottom: 4,
+    color: colors.title,
     fontSize: 24,
-    color: colors.title
+    marginBottom: 4,
+    marginHorizontal: 8,
+    textAlign: 'center'
   },
   authors: {
-    textAlign: 'center',
-    marginBottom: 10,
+    color: colors.text,
     fontSize: 14,
     fontStyle: 'italic',
-    color: colors.text
+    marginBottom: 10,
+    textAlign: 'center'
   },
   description: {
-    textAlign: 'left',
-    marginBottom: 10,
+    color: colors.text,
     fontSize: 15,
-    color: colors.text
+    marginBottom: 10,
+    textAlign: 'left'
   },
   downloads: {
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     padding: 10
   },
   linkContainer: {
-    flex: 1,
+    alignItems: 'center',
     backgroundColor: colors.button,
     borderRadius: 6,
-    padding: 10,
+    flex: 1,
+    justifyContent: 'center',
     margin: 3,
-    minWidth: 90,
     minHeight: 90,
-    alignItems: 'center',
-    justifyContent: 'center'
+    minWidth: 90,
+    padding: 10
   },
   linkTitle: {
     color: colors.buttonText,
