@@ -25,17 +25,17 @@ export const lightColors = {
   // backgrounds
   background: '#fff',
   thumbnail: '#dfd',
-  container: '#EEE3CB',
-  button: '#967E76',
+  container: '#ece5d7',
+  button: '#7f7775',
   // texts
-  text: '#111111',
+  text: '#383434',
   title: '#000000',
-  placeholder: '#D7C0AE',
+  placeholder: '#baa696',
   buttonText: '#ffffff',
   // others
-  border: '#9BABB8',
+  border: '#959a9e',
   notification: '#ff5555',
-  loadingAnimation: '#D7C0AE',
+  loadingAnimation: '#7f7f7f',
   shadow: '#000'
 }
 
